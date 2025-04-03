@@ -5,27 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>TODO App</title>
+    <!-- pour importer le lien du font family -->
     <style>
-
+        @import url('https://fonts.googleapis.com/css2?family=Galada&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap');
     </style>
 </head>
-<body class="w-[100vw] h-[100vh] bg-pink-200 box-border ">
-    <header class="w-full h-[20rem] bg-[url(./assets/imgs/herosection.svg)] bg-cover bg-no-repeat bg-center">
-        <nav class="w-full h-[20rem] bg-gradient-to-bl from-[#5596FF] to-[#AC2DEB] opacity-70 flex items-start justify-center">
-            <div class="pt-[4.4rem] w-[32.7rem] flex justify-between items-center ">
+<body class="w-[100vw] h-[100vh] bg-[gray] overflow-hidden box-border flex flex-col items-center gap-[1rem] font-[Josefin Sanssans-serif]">
+    <header class="w-full h-[20rem] bg-[url(assets/imgs/herosection.svg)] bg-cover bg-no-repeat">
+        <nav class="w-full h-[20rem] bg-gradient-to-bl from-[#5596FF] to-[#AC2DEB] opacity-80 flex items-start justify-center">
+            <div class="pt-[2rem] w-[32.7rem] flex justify-between items-center ">
                 <span class="text-[white] text-[4rem] font-[700] tracking-[1.5rem]">TODO</span>
                 <div class="flex items-center justify-center size-[3rem]">
-                    <img class="size-[3rem]" src="./assets/imgs/lune.svg" alt="darkmode">
+                    <img class="size-[3rem]" src="assets/imgs/lune.svg" alt="darkmode">
                 </div>
             </div>
         </nav>
-
     </header>
+    <!-- ajoutons ici la section portant notre input -->
+    <div class="w-[32.7rem] bg-[white] top-[10.8rem] left-[2.4rem] absolute rounded-[0.5rem] flex items-center px-[2rem] py-[1.4rem] gap-[1.2rem]">
+        <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
+            <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
+                <img class="w-[2rem] h-[2rem] opacity-0" src="assets/imgs/check.svg" alt="image coché">
+            </div>
+        </div>
+        <input class="outline-none w-[80%] text-[1.2rem] font-[400] bg-[white] text-[black]" placeholder="Create a new todo…"  type="text" name="text" id="input">
+    </div>
+    <!-- top-[17rem] left-[2.4rem] -->
+    <!-- ici rajoutons la section de tache  -->
+   
     
 
 
 
 
-    <script src="./assets/script/script.js"></script>
+    <script src="assets/script/script.js"></script>
 </body>
 </html>
