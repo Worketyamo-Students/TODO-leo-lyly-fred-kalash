@@ -32,18 +32,18 @@
     </div>
     <!-- ici rajoutons la section de tache  -->
     <div class="w-[32.7rem] mb-[4.4rem] rounded-[0.5rem] absolute top-[17rem] flex flex-col gap-[1.6rem]">
-        <div class="bg-[pink] w-[100%] overflow-y-scroll h-[auto] max-h-[26rem] rounded-[0.5rem] shadow-[0px_35px_50px_-15px_#C2C3D680]" id="task_bloc"><!-- hidden this -->
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem] hidden" id="taskcontainer">
+        <div class="bg-[pink] w-[100%] overflow-y-scroll h-[auto] max-h-[26rem] rounded-[0.5rem] shadow-[0px_35px_50px_-15px_#C2C3D680]" id="blocTache"><!-- hidden this -->
+            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem] hidde" id="taskcontainer">
                 <div class="flex items-center gap-[1.2rem]"id="newtask">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center" id="circle_border">
-                        <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center"nid="circle">
+                        <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center cursor-[pointer]" id="circle">
                             <img class="w-[2rem] h-[2rem] opacity-0" id="image_click" src="assets/imgs/check.svg" alt="image coché">
                         </div>
                     </div>
-                    <span id="task_text">nouvelle tache</span>
+                    <span class="text-[black] font-[400] text-[1.8rem]" id="task_text">nouvelle tache</span>
                 </div>
                 <div class="flex items-center justify-center size-[1.2rem]" id="cross_container">
-                    <img src="./assets/imgs/cross.svg" alt="effacer" id="cross">
+                    <img class="cursor-[pointer]" src="./assets/imgs/cross.svg" alt="effacer" id="cross">
                 </div>
             </div>
             <!-- <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
@@ -164,9 +164,9 @@
 
 
         <div class="rounded-[0.5rem] bg-[white] flex items-center justify-center gap-[1.8rem] shadow-[0px_35px_50px_-15px_#C2C3D680] py-[1.5rem]">
-            <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] text-[1.4rem]">All</span>
-            <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] text-[1.4rem]">Active</span>
-            <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] text-[1.4rem]">Completed</span>
+            <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] cursor-[pointer] text-[1.4rem]">All</span>
+            <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] cursor-[pointer] text-[1.4rem]">Active</span>
+            <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] cursor-[pointer] text-[1.4rem]">Completed</span>
         </div>
     <span class="text-[#9495A5] mt-[5.4rem] text-center  font-[700] text-[1.4rem]">Drag and drop to reorder list</span>  
     </div>
