@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="text-[10px]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>TODO App</title>
+</head>
+<body class="w-[100vw] h-[100vh] bg-[white] overflow-hidden box-border flex flex-col items-center gap-[1rem] font-[Josefin Sanssans-serif]">
+    <header class="w-full h-[20rem] bg-[url(assets/imgs/herosection.svg)] bg-cover bg-no-repeat">
+        <nav class="w-full h-[20rem] bg-gradient-to-bl from-[#5596FF] to-[#AC2DEB] opacity-80 flex items-start justify-center">
+            <div class="pt-[2rem] w-[32.7rem] flex justify-between items-center ">
+                <span class="text-[white] text-[4rem] font-[700] tracking-[1.5rem]">TODO</span>
+                <div class="flex items-center justify-center size-[3rem]">
+                    <img class="size-[3rem]" src="assets/imgs/lune.svg" alt="darkmode">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="w-[32.7rem] bg-[white] top-[10.8rem] absolute rounded-[0.5rem] flex items-center px-[2rem] py-[1.4rem] gap-[1.2rem]">
+        <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
+            <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
+                <img class="w-[2rem] h-[2rem] opacity-0 transition-opacity duration-300" src="./images/check.jpg" alt="image coché" id="check-icon">
+            </div>
+        </div>
+        <input class="outline-none w-[80%] text-[1.2rem] font-[400] bg-[white] text-[black]" placeholder="Create a new todo…"  type="text" name="text" id="input">
+    </div>
+    <div class="w-[32.7rem] mb-[4.4rem] rounded-[0.5rem] absolute top-[17rem] flex flex-col gap-[1.6rem]">
+        <div id="todo-list" class="bg-[pink] w-[100%] overflow-y-scroll h-[auto] max-h-[26rem] rounded-[0.5rem] shadow-[0px_35px_50px_-15px_#C2C3D680]">
+        </div>
+        <div class="w-[32.7rem] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem]">
+            <div class="flex items-center gap-[0.2rem] font-[400] text-[#9495A5] text-[1.2rem]">
+                <p id="items-left">0</p>
+                <span>items left</span>
+            </div>
+            <span class="font-[400] text-[#9495A5] text-[1.2rem]">
+                Clear Completed
+            </span>
+        </div>
+    </div>
+    <div id="filter-section" class="rounded-[0.5rem] bg-[white] flex items-center justify-center gap-[1.8rem] shadow-[0px_35px_50px_-15px_#C2C3D680] py-[1.5rem]">
+        <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] text-[1.4rem]">All</span>
+        <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] text-[1.4rem]">Active</span>
+        <span class="hover:text-[#3A7CFD] text-[#9495A5] font-[700] text-[1.4rem]">Completed</span>
+    </div>
+    
+    <span id="drag-text" class="text-[#9495A5] mt-[5.4rem] text-center  font-[700] text-[1.4rem]">Drag and drop to reorder list</span>
+  <script src="./assets/script/script.js"></script>
+</body>
+</html>
