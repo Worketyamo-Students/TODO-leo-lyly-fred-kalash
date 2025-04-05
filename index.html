@@ -25,16 +25,29 @@
     <div class="w-[32.7rem] bg-[white] top-[10.8rem] absolute rounded-[0.5rem] flex items-center px-[2rem] py-[1.4rem] gap-[1.2rem]">
         <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
             <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
-                <img class="w-[2rem] h-[2rem] opacity-0" src="assets/imgs/check.svg" alt="image coché">
+                <img class="w-[2rem] h-[2rem] opacity-0" id="input_check" src="assets/imgs/check.svg" alt="image coché">
             </div>
         </div>
         <input class="outline-none w-[80%] text-[1.2rem] font-[400] bg-[white] text-[black]" placeholder="Create a new todo…"  type="text" name="text" id="input">
     </div>
-    <!-- top-[17rem] left-[2.4rem] -->
     <!-- ici rajoutons la section de tache  -->
     <div class="w-[32.7rem] mb-[4.4rem] rounded-[0.5rem] absolute top-[17rem] flex flex-col gap-[1.6rem]">
-        <div class="bg-[pink] w-[100%] overflow-y-scroll h-[auto] max-h-[26rem] rounded-[0.5rem] shadow-[0px_35px_50px_-15px_#C2C3D680]"><!-- hidden this -->
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
+        <div class="bg-[pink] w-[100%] overflow-y-scroll h-[auto] max-h-[26rem] rounded-[0.5rem] shadow-[0px_35px_50px_-15px_#C2C3D680]" id="task_bloc"><!-- hidden this -->
+            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem] hidden" id="taskcontainer">
+                <div class="flex items-center gap-[1.2rem]"id="newtask">
+                    <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center" id="circle_border">
+                        <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center"nid="circle">
+                            <img class="w-[2rem] h-[2rem] opacity-0" id="image_click" src="assets/imgs/check.svg" alt="image coché">
+                        </div>
+                    </div>
+                    <span id="task_text">nouvelle tache</span>
+                </div>
+                <div class="flex items-center justify-center size-[1.2rem]" id="cross_container">
+                    <img src="./assets/imgs/cross.svg" alt="effacer" id="cross">
+                </div>
+            </div>
+            <!-- <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
+            <!-- <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
                 <div class="flex items-center gap-[1.2rem]">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
@@ -47,8 +60,8 @@
                     <img src="./assets/imgs/cross.svg" alt="">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
+            <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
+            <!-- <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
                 <div class="flex items-center gap-[1.2rem]">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
@@ -61,8 +74,8 @@
                     <img src="./assets/imgs/cross.svg" alt="">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
+            <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
+            <!-- <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
                 <div class="flex items-center gap-[1.2rem]">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
@@ -75,8 +88,8 @@
                     <img src="./assets/imgs/cross.svg" alt="">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
+            <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
+            <!-- <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
                 <div class="flex items-center gap-[1.2rem]">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
@@ -89,8 +102,8 @@
                     <img src="./assets/imgs/cross.svg" alt="">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
+            <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
+            <!-- <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
                 <div class="flex items-center gap-[1.2rem]">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
@@ -103,8 +116,8 @@
                     <img src="./assets/imgs/cross.svg" alt="">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
+            <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
+            <!-- <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
                 <div class="flex items-center gap-[1.2rem]">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
@@ -117,8 +130,8 @@
                     <img src="./assets/imgs/cross.svg" alt="">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
+            <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
+            <!-- <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
                 <div class="flex items-center gap-[1.2rem]">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
@@ -131,21 +144,7 @@
                     <img src="./assets/imgs/cross.svg" alt="">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
-            <div class="w-[100%] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]">
-                <div class="flex items-center gap-[1.2rem]">
-                    <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] flex items-center justify-center">
-                        <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] flex items-center justify-center">
-                            <img class="w-[2rem] h-[2rem] opacity-0" src="assets/imgs/check.svg" alt="image coché">
-                        </div>
-                    </div>
-                    <span>nouvelle tache</span>
-                </div>
-                <div class="flex items-center justify-center size-[1.2rem]">
-                    <img src="./assets/imgs/cross.svg" alt="">
-                </div>
-            </div>
-            <hr class="w-[100%] h-[0.1rem] bg-[gray]">
+            <hr class="w-[100%] h-[0.1rem] bg-[gray]"> -->
             <!-- ici c'est le bloc qui porte le compteur de tache -->
             <div class="w-[32.7rem] bg-[white] flex items-center justify-between px-[2rem] py-[1.4rem]">
                 <div class="flex items-center gap-[0.2rem] font-[400] text-[#9495A5] text-[1.2rem]">
