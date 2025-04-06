@@ -1,55 +1,74 @@
-// variable pour input
-let input=document.getElementById("input"); // input de la tâche
-let inputCoché=document.getElementById("input_check"); // input de la tâche cochée
-// variable pour la gestion des taches
-let blocTache=document.getElementById("blocTache");
-let conteneurTache=document.getElementById("taskcontainer")
-let firstconteneurTacheChild=document.getElementById("newTask"); //conteneur du cercle et de la case a coché
-let bordercircle=document.getElementById("circle_border"); // cercle de la tâche
-let circle=document.getElementById("circle"); // cercle de la tâche
-let imagecoché=document.getElementById("image_click"); // image de la tâche cochée
-let text=document.getElementById("task_text"); // texte de la tâche
-let secondconteneurTacheChild=document.getElementById("cross_container");// conteneur de la croix
-let supprimer=document.getElementById("cross") // croix qui permet de supprimer une tâche
-
-
-
-
-// condition pour faire apparaitre la validation de l'input
-while (input.value.length>4) {
-    // inputCoché.style.opacity="1"
-    console.log("coche")
-}
-// evennement du clique sur la tache
-let isClicked = false; // Variable pour suivre le clic
-imagecoché.addEventListener("click", function () {
-    if (!isClicked) {
-        imagecoché.style.opacity = "1"; 
-        imagecoché.style.transition = "opacity 0.5s ease-in-out"; // Ajout de la transition
-        imagecoché.style.transform = "scale(1.1)"; // Ajout de l'effet de zoom
-        text.style.textDecoration = "line-through"; 
-        text.style.color = "#D1D2DA"; // Change la couleur du texte
-        text.style.transition = "color 0.5s ease-in-out"; // Ajout de la transition 
-    } else {
-        imagecoché.style.opacity = "0";
-        text.style.textDecoration = "none"; // Enlève le soulignement
-        text.style.color = "black"; 
-    }
-    isClicked = !isClicked; 
-});
-// evenement du clique sur la croix
-supprimer.addEventListener("click", function () {
-    // supprime la tâche
-    conteneurTache.remove()
-    console.log("supprimé")
-});
-// coche la case de l'input lorsque on saisit 5 caracterere au moins
+// variables declarer
+let input = document.getElementById("input");
+let blocTache = document.getElementById("blocTache");
+let taskContainer = document.getElementById("taskcontainer");
+let inputCoché=document.getElementById("input_check");
+let hr=document.getElementById("hr");
 input.addEventListener("input", function () {
+    // cet evenement se declenche a chaque fois que la valeur de l'input change
     if (input.value.length > 4) {
-        inputCoché.style.opacity="1" // Affiche l'image
-        inputCoché.style.transition = "opacity 0.5s ease-in-out"; // Ajout de la transition
-        inputCoché.style.transform = "scale(1.1)"; // Ajout de l'effet de zoom
+        inputCoché.style.opacity="1"
+        inputCoché.style.transition = "opacity 0.5s ease-in-out"; 
+        inputCoché.style.transform = "scale(1.1)";
     } else {
-        inputCoché.style.opacity="0" // Masque l'image
+        inputCoché.style.opacity="0" 
     }
 });
+// Ajouter un écouteur d'événement pour la touche "Entrée"
+input.addEventListener("keypress", function (event) {
+    if (event.key === "Enter" && input.value.trim() !== "" && input.value.length > 4) {
+        // Cloner le conteneur de la tâche avec tous ses enfants
+        let taskContainerClone = taskContainer.cloneNode(true);
+        hr.style.opacity="0"
+        let hrClone = hr.cloneNode(true);
+        blocTache.appendChild(hrClone);
+        blocTache.insertBefore(hrClone, blocTache.firstChild);
+        hrClone.style.backgroundColor = "#D1D2DA";
+        hr.remove();
+        
+        // Modifier le texte dans le clone
+        let taskText = taskContainerClone.querySelector("#task_text");
+        if (taskText) {
+            taskText.textContent = input.value.trim(); // Attribuer la valeur de l'input
+        }
+        // ajouter les événements au clone
+        let imageClickClone = taskContainerClone.querySelector("#image_click");
+        let crossClone = taskContainerClone.querySelector("#cross");
+        if (imageClickClone) {
+            imageClickClone.addEventListener("click", function () {
+                // Gérer l'événement de clic sur la nouvelle tache
+                if (imageClickClone.style.opacity === "1") {
+                    imageClickClone.style.opacity = "0";
+                    taskText.style.textDecoration = "none";
+                    taskText.style.color = "black"; 
+                } else {
+                    imageClickClone.style.opacity = "1";
+                    imageClickClone.style.transition = "opacity 0.5s ease-in-out"; 
+                    imageClickClone.style.transform = "scale(1.1)";
+                    taskText.style.textDecoration = "line-through";
+                    taskText.style.color = "#D1D2DA";
+                    taskText.style.transition = "color 0.5s ease-in-out";
+                }
+            });
+        }
+        // Gérer l'événement de clic sur la croix
+        if (crossClone) {
+            crossClone.addEventListener("click", function () {
+                taskContainerClone.remove();
+                hrClone.remove()
+            });
+        }
+        // ceci c'est pour inserer chaque nouvelle tache au debut du parent
+        blocTache.insertBefore(taskContainerClone, blocTache.firstChild);
+        // Réinitialiser l'input
+        input.value = "";
+        inputCoché.style.opacity="0" 
+    } else if (event.key === "Enter") {
+        alert("entez au moins 5 caractères");
+    }
+    
+
+    
+});
+taskContainer.remove(); 
+
