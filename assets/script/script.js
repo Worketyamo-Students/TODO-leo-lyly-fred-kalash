@@ -4,6 +4,7 @@ let blocTache = document.getElementById("blocTache");
 let taskContainer = document.getElementById("taskcontainer");
 let inputCoché=document.getElementById("input_check");
 let hr=document.getElementById("hr");
+let compteur=document.getElementById("compteur");
 input.addEventListener("input", function () {
     // cet evenement se declenche a chaque fois que la valeur de l'input change
     if (input.value.length > 4) {
@@ -16,7 +17,7 @@ input.addEventListener("input", function () {
 });
 // Ajouter un écouteur d'événement pour la touche "Entrée"
 input.addEventListener("keypress", function (event) {
-    if (event.key === "Enter" && input.value.trim() !== "" && input.value.length > 4) {
+    if (event.key === "Enter" && input.value.trim() !=="" && input.value.length > 4) {
         // Cloner le conteneur de la tâche avec tous ses enfants
         let taskContainerClone = taskContainer.cloneNode(true);
         hr.style.opacity="0"
@@ -65,10 +66,8 @@ input.addEventListener("keypress", function (event) {
         inputCoché.style.opacity="0" 
     } else if (event.key === "Enter") {
         alert("entez au moins 5 caractères");
-    }
-    
-
-    
+    } 
 });
 taskContainer.remove(); 
+
 
