@@ -19,12 +19,16 @@ input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     let Newelement = conteneurTache.cloneNode(true);
     Newelement.style.display = "flex"
+    let newTask = Newelement.querySelector("#newtask")
+    let text = document.createElement("span")
+    text.classList = "text-[black] font-[400] text-[1.8rem]"
+    newTask.appendChild(text)
     text.innerHTML = input.value;
     blocTache.appendChild(Newelement);
     count ++
     compteur.innerHTML = count
 
-    input.value = ""
+    input.value = "";
     inputCoché.style.opacity = "0"
 
   }
