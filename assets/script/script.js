@@ -5,6 +5,7 @@ let taskContainer = document.getElementById("taskcontainer");
 let inputCoché=document.getElementById("input_check");
 let hr=document.getElementById("hr");
 let compteur=document.getElementById("compteur");
+let count=0;
 input.addEventListener("input", function () {
     // cet evenement se declenche a chaque fois que la valeur de l'input change
     if (input.value.length > 4) {
@@ -20,6 +21,7 @@ input.addEventListener("keypress", function (event) {
     if (event.key === "Enter" && input.value.trim() !=="" && input.value.length > 4) {
         // Cloner le conteneur de la tâche avec tous ses enfants
         let taskContainerClone = taskContainer.cloneNode(true);
+        count++
         hr.style.opacity="0"
         let hrClone = hr.cloneNode(true);
         blocTache.appendChild(hrClone);
@@ -42,6 +44,8 @@ input.addEventListener("keypress", function (event) {
                     imageClickClone.style.opacity = "0";
                     taskText.style.textDecoration = "none";
                     taskText.style.color = "black"; 
+                    count++
+                    compteur.textContent = count
                 } else {
                     imageClickClone.style.opacity = "1";
                     imageClickClone.style.transition = "opacity 0.5s ease-in-out"; 
@@ -49,6 +53,8 @@ input.addEventListener("keypress", function (event) {
                     taskText.style.textDecoration = "line-through";
                     taskText.style.color = "#D1D2DA";
                     taskText.style.transition = "color 0.5s ease-in-out";
+                    compteur.textContent = count - 1
+                    count--
                 }
             });
         }
@@ -57,6 +63,8 @@ input.addEventListener("keypress", function (event) {
             crossClone.addEventListener("click", function () {
                 taskContainerClone.remove();
                 hrClone.remove()
+                compteur.textContent = count - 1
+                count--
             });
         }
         // ceci c'est pour inserer chaque nouvelle tache au debut du parent
@@ -64,6 +72,7 @@ input.addEventListener("keypress", function (event) {
         // Réinitialiser l'input
         input.value = "";
         inputCoché.style.opacity="0" 
+        compteur.textContent=count
     } else if (event.key === "Enter") {
         alert("entez au moins 5 caractères");
     } 
