@@ -6,6 +6,9 @@ let inputCoché=document.getElementById("input_check");
 let hr=document.getElementById("hr");
 let compteur=document.getElementById("compteur");
 let count=0;
+let clear=document.getElementById("clear");
+// supprimer le hr au debut du code 
+hr.remove();
 input.addEventListener("input", function () {
     // cet evenement se declenche a chaque fois que la valeur de l'input change
     if (input.value.length > 4) {
@@ -78,5 +81,22 @@ input.addEventListener("keypress", function (event) {
     } 
 });
 taskContainer.remove(); 
+// ajoutons l'option "clear"
+clear.addEventListener("click", function () {
+    // Réinitialiser le compteur    
+    count = 0;
+    compteur.textContent = count;
+    // Supprimer toutes les tâches
+    let taskContainers = blocTache.querySelectorAll("#taskcontainer");
+    taskContainers.forEach(function (task) {
+        task.remove();
+    });
+    // Supprimer tous les hr
+    let hrs = blocTache.querySelectorAll("#hr");
+    hrs.forEach(function (hr) {
+        hr.remove();
+    });
+});
+console.log(tabCompleted)
 
 
