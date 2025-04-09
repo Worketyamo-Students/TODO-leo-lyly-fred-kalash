@@ -7,7 +7,13 @@ let hr=document.getElementById("hr");
 let compteur=document.getElementById("compteur");
 let count=0;
 let clear=document.getElementById("clear");
-// supprimer le hr au debut du code 
+    // let all=document.getElementById("all");
+    // let active=document.getElementById("active");
+    // let completed=document.getElementById("completed");
+    // let tabCompleted = [];
+    // let tabActive = [];
+    // let tabAll = [];
+    // supprimer le hr au debut du code 
 hr.remove();
 input.addEventListener("input", function () {
     // cet evenement se declenche a chaque fois que la valeur de l'input change
@@ -97,6 +103,5 @@ clear.addEventListener("click", function () {
         hr.remove();
     });
 });
-console.log(tabCompleted)
 
 
