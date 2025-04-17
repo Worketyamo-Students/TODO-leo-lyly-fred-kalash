@@ -7,12 +7,10 @@ let hr=document.getElementById("hr");
 let compteur=document.getElementById("compteur");
 let count=0;
 let clear=document.getElementById("clear");
-    // let all=document.getElementById("all");
-    // let active=document.getElementById("active");
-    // let completed=document.getElementById("completed");
-    // let tabCompleted = [];
-    // let tabActive = [];
-    // let tabAll = [];
+
+
+
+let tableComplete=[]
     // supprimer le hr au debut du code 
 hr.remove();
 input.addEventListener("input", function () {
@@ -105,3 +103,41 @@ clear.addEventListener("click", function () {
 });
 
 
+// option all
+let all = document.getElementById("all")
+all.addEventListener("click",()=>{
+    all.style.color="#3A7CFD"
+    active.style.color="#9495A5"
+    complete.style.color="#9495A5"
+} )
+
+// option active
+let active = document.getElementById("active")
+active.addEventListener("click",()=>{
+    active.style.color="#3A7CFD"
+    all.style.color="#9495A5"
+    complete.style.color="#9495A5"
+
+    
+} )
+
+// option Complete
+let complete = document.getElementById("completed")
+complete.addEventListener("click",()=>{
+    complete.style.color="#3A7CFD"
+    all.style.color="#9495A5"
+    active.style.color="#9495A5"
+
+
+    
+} )
+
+
+
+
+
+// document.addEventListener("click", function (event) {
+//     if( imageClickClone.style.opacity === "1") { 
+//         console.log("Un élément a été cliqué :", event.target);
+//     }
+// });
