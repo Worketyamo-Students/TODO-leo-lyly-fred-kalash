@@ -50,7 +50,7 @@
     <!-- ici rajoutons la section de tache  -->
     <div class="w-[32.7rem] mb-[4.4rem] rounded-[0.5rem] absolute top-[17rem] flex flex-col gap-[1.6rem]">
         <div class="dark:bg-[#393A4B] w-[100%] overflow-y-scroll  h-[auto] max-h-[26rem] rounded-[0.5rem] dark:shadow-[0px_35px_50px_-15px_##0F1017] shadow-[0px_35px_50px_-15px_#C2C3D680]" id="blocTache"><!-- hidden this -->
-            <div class="w-[100%] bg-[white] dark:bg-[#25273D] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]" id="taskcontainer">
+            <div class="w-[100%] bg-[white] dark:bg-[#25273D] flex items-center justify-between px-[2rem] py-[1.4rem] gap-[1.2rem]  border-b-2 border-[#D1D2DA]" id="taskcontainer">
                 <div class="flex items-center gap-[1.2rem]"id="newtask">
                     <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] dark:bg-[#393A4B] hover:bg-gradient-to-br from-[#55DDFF] to-[#C058F3] flex items-center justify-center" id="circle_border">
                         <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] dark:bg-[#25273D] flex items-center justify-center cursor-[pointer]" id="circle">
@@ -63,7 +63,6 @@
                     <img class="cursor-[pointer]" src="./assets/imgs/cross.svg" alt="effacer" id="cross">
                 </div>
             </div>
-            <hr class="w-[100%] h-[0.1rem] opacity-0" id="hr">
             <!-- ici c'est le bloc qui porte le compteur de tache -->
             <div class="w-[32.7rem] bg-[white] dark:bg-[#25273D] flex items-center justify-between px-[2rem] py-[1.4rem]" id="blocCompteur">
                 <div class="flex items-center gap-[0.2rem] font-[400] text-[#9495A5] dark:text-[#5B5E7E] text-[1.2rem]">
@@ -77,12 +76,23 @@
             <!-- il y'a un dernier ajusrement a faire ici -->
         </div>
         <div class="rounded-[0.5rem] bg-[white] dark:bg-[#25273D] flex items-center justify-center gap-[1.8rem] shadow-[0px_35px_50px_-15px_#16172180] dark:shadow-[0px_35px_50px_-15px_##0F1017] py-[1.5rem]">
-            <span class="hover:text-[#3A7CFD] text-[#9495A5] dark:text-[#5B5E7E] font-[700] cursor-[pointer] text-[1.4rem]" id="all">All</span>
+            <span class="hover:text-[#3A7CFD] text-[#3A7CFD] dark:text-[#5B5E7E] font-[700] cursor-[pointer] text-[1.4rem]" id="all">All</span>
             <span class="hover:text-[#3A7CFD] text-[#9495A5] dark:text-[#5B5E7E] font-[700] cursor-[pointer] text-[1.4rem]" id="active">Active</span>
-            <span class="hover:text-[#3A7CFD] text-[#9495A5] dark:text-[#5B5E7E] font-[700] cursor-[pointer] text-[1.4rem]" id="Completed">Completed</span>
+            <span class="hover:text-[#3A7CFD] text-[#9495A5] dark:text-[#5B5E7E] font-[700] cursor-[pointer] text-[1.4rem]" id="completed">Completed</span>
         </div>
     <span class="text-[#9495A5] dark:text-[#5B5E7E] mt-[5.4rem] text-center  font-[700] text-[1.4rem]">Drag and drop to reorder list</span>  
     </div>
     <script src="assets/script/script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

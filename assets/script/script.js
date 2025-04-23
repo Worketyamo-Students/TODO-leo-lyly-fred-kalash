@@ -3,104 +3,147 @@ let input = document.getElementById("input");
 let blocTache = document.getElementById("blocTache");
 let taskContainer = document.getElementById("taskcontainer");
 let inputCoché=document.getElementById("input_check");
-let hr=document.getElementById("hr");
 let compteur=document.getElementById("compteur");
-let count=0;
 let clear=document.getElementById("clear");
-    // let all=document.getElementById("all");
-    // let active=document.getElementById("active");
-    // let completed=document.getElementById("completed");
-    // let tabCompleted = [];
-    // let tabActive = [];
-    // let tabAll = [];
-    // supprimer le hr au debut du code 
-hr.remove();
+let tabConteneurTache=[];
+let tableAll=[];
+let tableActive=[];
+let tableComplete=[];
+let count
+document.addEventListener('DOMContentLoaded', function () {
+    input.value="";
+    inputCoché.style.opacity="0" ;
+});
+// evenement de cochage sur l'input en temps reel
 input.addEventListener("input", function () {
-    // cet evenement se declenche a chaque fois que la valeur de l'input change
-    if (input.value.length > 4) {
-        inputCoché.style.opacity="1"
+    if (input.value.length > 4 && input.value.trim() !=="") {
+        inputCoché.style.opacity="1";
         inputCoché.style.transition = "opacity 0.5s ease-in-out"; 
         inputCoché.style.transform = "scale(1.1)";
     } else {
-        inputCoché.style.opacity="0" 
+        inputCoché.style.opacity="0" ;
     }
 });
-// Ajouter un écouteur d'événement pour la touche "Entrée"
+// evenement du bouton enter
 input.addEventListener("keypress", function (event) {
-    if (event.key === "Enter" && input.value.trim() !=="" && input.value.length > 4) {
-        // Cloner le conteneur de la tâche avec tous ses enfants
-        let taskContainerClone = taskContainer.cloneNode(true);
-        count++
-        hr.style.opacity="0"
-        let hrClone = hr.cloneNode(true);
-        blocTache.appendChild(hrClone);
-        blocTache.insertBefore(hrClone, blocTache.firstChild);
-        hrClone.style.backgroundColor = "#D1D2DA";
-        hr.remove();
-        
-        // Modifier le texte dans le clone
-        let taskText = taskContainerClone.querySelector("#task_text");
-        if (taskText) {
-            taskText.textContent = input.value.trim(); // Attribuer la valeur de l'input
-        }
-        // ajouter les événements au clone
-        let imageClickClone = taskContainerClone.querySelector("#image_click");
-        let crossClone = taskContainerClone.querySelector("#cross");
-        if (imageClickClone) {
-            imageClickClone.addEventListener("click", function () {
-                // Gérer l'événement de clic sur la nouvelle tache
-                if (imageClickClone.style.opacity === "1") {
-                    imageClickClone.style.opacity = "0";
-                    taskText.style.textDecoration = "none";
-                    taskText.style.color = "black"; 
-                    count++
-                    compteur.textContent = count
-                } else {
-                    imageClickClone.style.opacity = "1";
-                    imageClickClone.style.transition = "opacity 0.5s ease-in-out"; 
-                    imageClickClone.style.transform = "scale(1.1)";
-                    taskText.style.textDecoration = "line-through";
-                    taskText.style.color = "#D1D2DA";
-                    taskText.style.transition = "color 0.5s ease-in-out";
-                    compteur.textContent = count - 1
-                    count--
+if (event.key === "Enter" && input.value.trim() !=="" && input.value.length > 4) {
+    let taskContainerClone=taskContainer.cloneNode(true);
+    blocTache.appendChild(taskContainerClone);
+    blocTache.insertBefore(taskContainerClone, blocTache.firstChild);
+    tabConteneurTache.push(taskContainerClone)
+    // Modifier le texte dans le clone
+    let taskText = taskContainerClone.querySelector("#task_text");
+    if (taskText) {
+        taskText.textContent = input.value.trim(); // Attribuer la valeur de l'input
+    }
+    input.value="";
+    inputCoché.style.opacity="0" ;
+     // ajouter les événements au clone
+    let imageClickClone = taskContainerClone.querySelector("#image_click");
+    let crossClone = taskContainerClone.querySelector("#cross");
+    crossClone.style.display="none"
+    taskContainerClone.addEventListener("mouseover", function(){
+    crossClone.style.display="flex"
+    })
+    taskContainerClone.addEventListener("mouseleave", function(){
+        crossClone.style.display="none"
+    })
+     tableActive.push(imageClickClone.parentNode.parentNode.parentNode.parentNode);
+    if (imageClickClone) {
+        imageClickClone.addEventListener("click", function () {
+            // Gérer l'événement de clic sur la nouvelle tache
+            if (imageClickClone.style.opacity === "1") {
+                imageClickClone.style.opacity = "0";
+                taskText.style.textDecoration = "none";
+                taskText.style.color = "black";
+                tableActive.push(imageClickClone.parentNode.parentNode.parentNode.parentNode);
+                const index = tableComplete.indexOf(imageClickClone.parentNode.parentNode.parentNode.parentNode);
+                if (index !== -1) {
+                  tableComplete.splice(index, 1);
                 }
-            });
-        }
-        // Gérer l'événement de clic sur la croix
-        if (crossClone) {
-            crossClone.addEventListener("click", function () {
-                taskContainerClone.remove();
-                hrClone.remove()
-                compteur.textContent = count - 1
-                count--
-            });
-        }
-        // ceci c'est pour inserer chaque nouvelle tache au debut du parent
-        blocTache.insertBefore(taskContainerClone, blocTache.firstChild);
-        // Réinitialiser l'input
-        input.value = "";
-        inputCoché.style.opacity="0" 
-        compteur.textContent=count
-    } else if (event.key === "Enter") {
-        alert("entez au moins 5 caractères");
-    } 
+            } else {
+                imageClickClone.style.opacity = "1";
+                imageClickClone.style.transition = "opacity 0.5s ease-in-out"; 
+                imageClickClone.style.transform = "scale(1.1)";
+                taskText.style.textDecoration = "line-through";
+                taskText.style.color = "#D1D2DA";
+                taskText.style.transition = "color 0.5s ease-in-out";
+                tableComplete.push(imageClickClone.parentNode.parentNode.parentNode.parentNode);
+                const index = tableActive.indexOf(imageClickClone.parentNode.parentNode.parentNode.parentNode);
+                if (index !== -1) {
+                  tableActive.splice(index, 1);
+                }
+            }
+        });
+    }
+    // Gérer l'événement de clic sur la croix
+    if (crossClone) {
+       crossClone.addEventListener("click", function () {
+           taskContainerClone.remove();
+           tableActive.remove();
+           tableComplete.remove();
+           tableAll.remove();
+       });
+    }
+}
+
 });
-taskContainer.remove(); 
-// ajoutons l'option "clear"
-clear.addEventListener("click", function () {
-    // Réinitialiser le compteur    
-    count = 0;
-    compteur.textContent = count;
-    // Supprimer toutes les tâches
-    let taskContainers = blocTache.querySelectorAll("#taskcontainer");
-    taskContainers.forEach(function (task) {
-        task.remove();
-    });
-    // Supprimer tous les hr
-    let hrs = blocTache.querySelectorAll("#hr");
-    hrs.forEach(function (hr) {
-        hr.remove();
-    });
+taskContainer.remove()
+  // ajoutons l'option "clear complete"
+  clear.addEventListener("click", function () {
+    console.log(tableComplete)
+    for (let i = 0; i < tableComplete.length; i++) {
+        tableComplete[i].remove()
+    }
 });
 
+// option all
+let all = document.getElementById("all")
+all.addEventListener("click",()=>{
+all.style.color="#3A7CFD"
+active.style.color="#9495A5"
+complete.style.color="#9495A5"
+for(let i=0; i<tableComplete.length;i++){
+    tableComplete[i].style.display="flex"
+}
+for(let i=0; i<tableActive.length;i++){
+    tableActive[i].style.display="flex"
+}
+})
+
+// option active
+let active = document.getElementById("active")
+active.addEventListener("click",()=>{
+    active.style.color="#3A7CFD"
+    all.style.color="#9495A5"
+    complete.style.color="#9495A5"
+    console.log(tableActive)
+    for(let i=0; i<tableActive.length;i++){
+        tableActive[i].style.display="flex"
+    }
+    for(let i=0; i<tableComplete.length;i++){
+        tableComplete[i].style.display="none"
+    }
+} )
+
+// option Complete
+let complete = document.getElementById("completed")
+complete.addEventListener("click",()=>{
+    complete.style.color="#3A7CFD"
+    all.style.color="#9495A5"
+    active.style.color="#9495A5"
+    console.log(tableComplete)
+    for(let i=0; i<tableActive.length;i++){
+        tableActive[i].style.display="none"
+    }
+    for(let i=0; i<tableComplete.length;i++){
+        tableComplete[i].style.display="flex"
+    }
+} )
+
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            count=tableActive.length
+            compteur.textContent=(count)
+        }
+        });
