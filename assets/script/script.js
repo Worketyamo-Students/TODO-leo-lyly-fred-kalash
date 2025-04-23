@@ -104,4 +104,3 @@ clear.addEventListener("click", function () {
     });
 });
 
-
