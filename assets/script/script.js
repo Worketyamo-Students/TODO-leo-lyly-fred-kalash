@@ -7,6 +7,7 @@ let hr=document.getElementById("hr");
 let compteur=document.getElementById("compteur");
 let count=0;
 let clear=document.getElementById("clear");
+let tabConteneurTache=[]
 
 
 
@@ -80,9 +81,10 @@ input.addEventListener("keypress", function (event) {
         input.value = "";
         inputCoché.style.opacity="0" 
         compteur.textContent=count
-    } else if (event.key === "Enter") {
-        alert("entez au moins 5 caractères");
-    } 
+        } else if (event.key === "Enter") {
+            alert("entez au moins 5 caractères");
+        } 
+                  
 });
 taskContainer.remove(); 
 // ajoutons l'option "clear"
@@ -129,7 +131,7 @@ complete.addEventListener("click",()=>{
     active.style.color="#9495A5"
 
 
-    
+
 } )
 
 
