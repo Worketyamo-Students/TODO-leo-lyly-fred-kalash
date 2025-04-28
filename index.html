@@ -20,26 +20,25 @@
            });
        }
    </script>
-
 </head>
 <body  class="w-[100vw] h-[100vh] bg-[white] dark:bg-[#161721] overflow-hidden box-border flex flex-col items-center gap-[1rem]">
-    <header class="w-full h-[20rem] bg-[url('../assets/imgs/herosection.svg')] dark:bg-[url('../assets/imgs/darkherosection.svg')]  bg-cover bg-no-repeat">
-        <nav class="w-full h-[20rem] bg-gradient-to-bl from-[#5596FF] to-[#AC2DEB] opacity-80 flex items-start justify-center">
-            <div class="pt-[2rem] w-[32.7rem] flex justify-between items-center ">
+    <header class="w-full h-[20rem] md:h-[31rem] bg-[url('../assets/imgs/herosection.svg')] dark:bg-[url('../assets/imgs/darkherosection.svg')] bg-center  bg-cover bg-no-repeat">
+        <nav class="w-full h-[20rem] md:h-[31rem] bg-gradient-to-bl from-[#5596FF] to-[#AC2DEB] opacity-70 flex items-start justify-center">
+            <div class="pt-[2rem] w-[32.7rem] md:w-[54rem] md:bg-[redgit bra] flex justify-between items-center ">
                 <span class="text-[white] text-[4rem] font-[700] tracking-[1.5rem]">TODO</span>
                 <button id="dark-mode-toggle" class="cursor-pointer flex items-center justify-center size-[3rem]">
                     <span class="inline dark:hidden">
-                         <img src="./assets/imgs/lune.svg" alt="light-mode">
+                         <img class="size-[2rem] md:size-[3rem]" src="./assets/imgs/lune.svg" alt="light-mode">
                     </span>
                     <span class="hidden dark:inline">
-                         <img src="./assets/imgs/soleil.svg" alt="Dark-mode">
+                         <img class="size-[2rem] md:size-[3rem]" src="./assets/imgs/soleil.svg" alt="Dark-mode">
                     </span>
-                 </button>
+                </button>
             </div>
         </nav>
     </header>
     <!-- ajoutons ici la section portant notre input -->
-    <div class="w-[32.7rem] bg-[white] dark:bg-[#25273D] top-[10.8rem] absolute rounded-[0.5rem] flex items-center px-[2rem] py-[1.4rem] gap-[1.2rem]">
+    <div class="w-[32.7rem] md:w-[54rem] bg-[white] dark:bg-[#25273D] top-[10.8rem] absolute rounded-[0.5rem] flex items-center px-[2rem] py-[1.4rem] gap-[1.2rem]">
         <div class="w-[2.2rem] h-[2.2rem] rounded-[50%] bg-[gray] hover:bg-gradient-to-br from-[#55DDFF] to-[#C058F3] flex items-center justify-center">
             <div class="w-[2rem] h-[2rem] rounded-[50%] bg-[white] dark:bg-[#25273D] flex items-center justify-center">
                 <img class="w-[2rem] h-[2rem] opacity-0" id="input_check" src="assets/imgs/check.svg" alt="image coché">

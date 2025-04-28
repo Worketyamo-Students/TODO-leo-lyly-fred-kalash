@@ -20,5 +20,7 @@
   "bugs": {
     "url": "https://github.com/Worketyamo-Students/TODO-leo-lyly-fred-kalash/issues"
   },
-  "homepage": "https://github.com/Worketyamo-Students/TODO-leo-lyly-fred-kalash#readme"
+  "homepage": "https://github.com/Worketyamo-Students/TODO-leo-lyly-fred-kalash#readme",
+  "keywords": [],
+  "type": "commonjs"
 }
